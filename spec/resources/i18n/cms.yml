@@ -1,0 +1,100 @@
+---
+en:
+  cms:
+    header:
+      view_btn: View original
+      mode:
+        translate: 'Translate:'
+        review: 'Review:'
+        review_edit: 'Review & edit:'
+      source: Source
+      target: Target
+      arrow:
+        up: Move to the previous sentence
+        down: Move to the next sentence
+    body:
+      sentences:
+        toolbars:
+          copy:
+            desc: Copy the original text to the translation area
+          dotted_space:
+            desc: Visualize spaces
+          glossary:
+            desc: Lists the glossary related to this sentence
+          issue:
+            desc: Create issues for this sentence and view existing issues
+          machine_translation:
+            desc: Automatic translation
+          incomplete:
+            desc: Declare as incomplete
+          save:
+            desc: Save this sentence
+    footer:
+      back_to_list: Back to list
+      glossary:
+        btn: Glossary
+        desc: See the available glossary based on the original translations.
+      timed_out: Timed out
+      status:
+        in_progress: in progress
+        review_in_progress: review in progress
+        completed: completed
+      spellchecker:
+        label: Spell Check
+        toggle:
+          true: 'Yes'
+          false: 'No'
+      finish:
+        btn: Finish
+        desc: Finish and review translation
+      not_finish:
+        desc: All sentences has to be completed before being able to declare the work
+          as complete
+de:
+  cms:
+    header:
+      view_btn: Original anzeigen
+      mode:
+        translate: Übersetzen
+        review: 'Korrektur:'
+        review_edit: 'Korrigieren & bearbeiten:'
+      source: Quelle
+      target: Ziel
+      arrow:
+        up: Zum vorherigen Satz
+        down: Zum nächsten Satz
+    body:
+      sentences:
+        toolbars:
+          copy:
+            desc: Den Originaltext in den Übersetzungsbereich kopieren
+          dotted_space:
+            desc: Leerzeichen sichtbar machen
+          glossary:
+            desc: Die Glossareinträge zu diesem Satz auflisten
+          issue:
+            desc: Fälle für diesen Satz erstellen und vorhandene Fälle anzeigen
+          machine_translation:
+            desc: Maschinenübersetzung
+          incomplete:
+            desc: Als unvollständig markieren
+          save:
+            desc: Diesen Satz speichern
+    footer:
+      back_to_list: Zurück zur Liste
+      glossary:
+        btn: Glossar
+        desc: Verfügbares Glossar auf Basis der Originalübersetzungen anzeigen
+      timed_out: Zeit ist abgelaufen
+      status:
+        in_progress: in Verlauf
+        review_in_progress: Korrektur in Verlauf
+        completed: abgeschlossen
+      spellchecker:
+        label: Rechtschreibprüfung
+      finish:
+        btn: Beenden
+        desc: Beenden und Übersetzung korrigieren
+      not_finish:
+        desc: Alle Sätze müssen abgeschlossen sein, bevor Sie die Übersetzung als
+          abgeschlossen arkieren.

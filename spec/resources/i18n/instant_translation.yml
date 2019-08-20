@@ -1,0 +1,81 @@
+---
+en:
+  instant_translation:
+    intro: ' <div className="col-md-12"> <h1>Instant Translation Instructions</h1>
+      <p> Instant translation projects are typically short and simple texts which
+      should be translated in minutes. </p> <p> You will receive a notification in
+      the <strong>Open Jobs</strong> area (on the left) whenever an instant translation
+      project is available. For instant translation projects there is no bidding process,
+      the translation is assigned to you when you start translating it. </p> <p> Click
+      on the job name in the <strong>Open Jobs</strong> area and then click the <strong>Start
+      translating button</strong>. Make sure the translation is delivered before the
+      time runs out, otherwise the job will be released and available to other translators
+      again. </p> <p> If the original text contains tokens such as %{token}, you should
+      leave them intact in the translation. You can insert tokens using this shortcut:
+      Ctrl + Alt + [Token number]. </p> <p> Once the translation is done, press the
+      button <strong>Declare Complete</strong> to submit it to the client. </p> </div> '
+    panels:
+      open: Open Jobs
+      no_open_job: No open instant translation available yet.
+      current: Current Job
+      content:
+        words: words
+    job:
+      panels:
+        desc:
+          translate: Translate
+          from: from
+          to: to
+          words: words
+        source:
+          from: 'From:'
+        target:
+          to: 'To:'
+          cancel:
+            btn: Cancel
+            confirm: Are you sure you want to cancel this job?
+          complete:
+            btn: Declare complete
+            confirm: Are you sure you want to mark this job as complete?
+      start_btn: Start translating
+de:
+  instant_translation:
+    intro: '<div className="col-md-12"> <h1>Anleitung für Sofortübersetzungen</h1>
+      <p> Sofortübersetzungstexte sind meist kurze und einfache Texte, die in wenigen
+      Minuten übersetzt werden sollen. </p> <p> Sie erhalten eine Benachrichtigung
+      im Bereich <strong>Offene Aufträge</strong> (links), wenn ein Sofortübersetzungsauftrag
+      verfügbar ist. Bei Sofortübersetzungen werden keine Gebote abgegeben. Die Übersetzung
+      wird Ihnen zugeteilt, wenn Sie mit der Übersetzung beginnen.</p> <p> Klicken
+      Sie auf den Auftragsnamen im Bereich <strong>Offene Aufträge</strong> und klicken
+      Sie dann auf den <strong>Übersetzung starten-Button</strong>. Achten Sie darauf,
+      die Übersetzung abzusenden, bevor die Zeit abläuft, ansonsten wird der Auftrag
+      wieder freigegeben und für andere Übersetzer verfügbar. </p> <p> Wenn der Originaltext
+      Platzhalter wie %{token} enthält, sollten Sie diese in der Übersetzung intakt
+      lassen. Sie können Platzhalter mit diesem Shortcut einfügen: Strg + Alt + [Platzhalternummer].
+      </p> <p> Sobald Sie die Übersetzung abgeschlossen haben, klicken Sie auf den
+      Button <strong>Als abgeschlossen markieren</strong>, um sie an den Kunden zu
+      senden. </p> </div>'
+    panels:
+      open: Offene Aufträge
+      no_open_job: Es sind noch keine offenen Sofortübersetzungen verfügbar.
+      current: Aktueller Auftrag
+      content:
+        words: Wörter
+    job:
+      panels:
+        desc:
+          translate: Übersetzen
+          from: von
+          to: auf
+          words: Wörter
+        source:
+          from: 'Von:'
+        target:
+          to: 'Auf:'
+          cancel:
+            btn: Abbrechen
+            confirm: Wollen Sie diesen Auftrag wirklich abbrechen?
+          complete:
+            btn: Als abgeschlossen markieren
+            confirm: Wollen Sie diesen Auftrag wirklich als abgeschlossen markieren?
+      start_btn: Übersetzung starten

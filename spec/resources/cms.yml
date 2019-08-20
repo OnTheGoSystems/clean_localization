@@ -1,0 +1,109 @@
+---
+cms:
+  header:
+    view_btn:
+      en: View original
+      de: Original anzeigen
+    mode:
+      translate:
+        en: 'Translate:'
+        de: Übersetzen
+      review:
+        en: 'Review:'
+        de: 'Korrektur:'
+      review_edit:
+        en: 'Review & edit:'
+        de: 'Korrigieren & bearbeiten:'
+    source:
+      en: Source
+      de: Quelle
+    target:
+      en: Target
+      de: Ziel
+    arrow:
+      up:
+        en: Move to the previous sentence
+        de: Zum vorherigen Satz
+      down:
+        en: Move to the next sentence
+        de: Zum nächsten Satz
+  body:
+    sentences:
+      toolbars:
+        copy:
+          desc:
+            en: Copy the original text to the translation area
+            de: Den Originaltext in den Übersetzungsbereich kopieren
+        dotted_space:
+          desc:
+            en: Visualize spaces
+            de: Leerzeichen sichtbar machen
+        glossary:
+          desc:
+            en: Lists the glossary related to this sentence
+            de: Die Glossareinträge zu diesem Satz auflisten
+        issue:
+          desc:
+            en: Create issues for this sentence and view existing issues
+            de: Fälle für diesen Satz erstellen und vorhandene Fälle anzeigen
+        machine_translation:
+          desc:
+            en: Automatic translation
+            de: Maschinenübersetzung
+        incomplete:
+          desc:
+            en: Save draft
+            de: Speichern und fortfahren
+        save:
+          desc:
+            en: Save and complete
+            de: Speichern und vervollständigen
+  footer:
+    note:
+      en: Translation note
+    note_hide:
+      en: Translation note
+    back_to_list:
+      en: Back to list
+      de: Zurück zur Liste
+    glossary:
+      btn:
+        en: Glossary
+        de: Glossar
+      desc:
+        en: See the available glossary based on the original translations.
+        de: Verfügbares Glossar auf Basis der Originalübersetzungen anzeigen
+    timed_out:
+      en: Timed out
+      de: Zeit ist abgelaufen
+    status:
+      in_progress:
+        en: in progress
+        de: in Verlauf
+      review_in_progress:
+        en: review in progress
+        de: Korrektur in Verlauf
+      completed:
+        en: completed
+        de: abgeschlossen
+    spellchecker:
+      label:
+        en: Spell Check
+        de: Rechtschreibprüfung
+      toggle:
+        true:
+          en: 'Yes'
+        false:
+          en: 'No'
+    finish:
+      btn:
+        en: Finish
+        de: Beenden
+      desc:
+        en: Finish and review translation
+        de: Beenden und Übersetzung korrigieren
+    not_finish:
+      desc:
+        en: All sentences has to be completed before being able to declare the work
+          as complete
+        de: Alle Sätze müssen abgeschlossen sein, bevor Sie die Übersetzung als abgeschlossen arkieren.

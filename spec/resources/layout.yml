@@ -1,0 +1,23 @@
+---
+layout:
+  login:
+    title:
+      en: "<strong>%{appname}</strong> Login"
+      de: "<strong>%{appname}</strong> Einloggen"
+    caption:
+      en: 'Enter your username and password to log on:'
+      de: 'Geben Sie Ihren Benutzernamen und Ihr Passwort ein, um sich einzuloggen:'
+    button:
+      en: Sign in!
+      uk: Увійти
+      de: Anmelden!
+    hint:
+      en: Please select translation service
+      de: Bitte wählen Sie einen Übersetzungsservice aus
+    label:
+      en: Select translation service
+      de: Übersetzungsservice auswählen
+  signed_as:
+    en: Signed as <strong>%{login}</strong>
+    uk: Авторизовано як <strong>%{login}</strong>
+    de: Angemeldet als <strong>%{login}</strong>

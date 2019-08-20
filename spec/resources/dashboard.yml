@@ -1,0 +1,80 @@
+---
+dashboard:
+  instant_translation:
+    en: Instant Translation
+    de: Sofortübersetzung
+  jobs:
+    panel:
+      open:
+        en: Jobs waiting for your translation
+        de: Aufträge, die auf Ihre Übersetzung warten
+      reviews:
+        en: Jobs waiting for your review
+        de: Aufträge, die auf Ihre Korrektur warten
+      waiting_for_review:
+        en: Jobs that you translated and are awaiting review by someone else
+        de: Aufträge, die Sie übersetzt haben und die auf Korrektur durch andere warten
+      review_completed:
+        en: Jobs that you completed review
+        de: Aufträge, deren Korrektur Sie abgeschlossen haben
+      completed:
+        en: Jobs that you completed
+        de: Aufträge, die Sie abgeschlossen haben
+      table:
+        header:
+          filter:
+            label:
+              show_translation_jobs_from:
+                left:
+                  en: 'Show translation jobs from:'
+                  de: 'Anzeigen der Übersetzungsaufträge von:'
+                right:
+                  en: website(s)
+                  de: Website(s)
+              job_filter_id:
+                en: Job ID Filter
+                de: Auftrags-ID-Filter
+              search_btn:
+                en: Search
+                de: Suchen
+          columns:
+            label:
+              id:
+                en: ID
+                de: ID
+              project_name:
+                en: Project
+                de: Projekt
+              website_name:
+                en: Website
+                de: Website
+              source_language:
+                en: Source
+                de: Quelle
+              target_language:
+                en: Target
+                de: Ziel
+        body:
+          rows:
+            open_btn:
+              en: Open
+              de: Offen
+            fetching_jobs:
+              en: Fetching jobs
+              de: Aufträge werden abgerufen
+            no_jobs:
+              en: No jobs found.
+              de: Keine Aufträge gefunden.
+            project_details:
+              project_name:
+                en: 'Project Name:'
+                de: 'Projektname:'
+              deadline:
+                en: 'Deadline:'
+                de: 'Fristende:'
+              word_count:
+                en: 'Word Count:'
+                de: 'Wortzahl:'
+              progress:
+                en: 'Progress:'
+                de: 'Fortschritt:'

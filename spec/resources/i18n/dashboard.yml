@@ -1,0 +1,75 @@
+---
+en:
+  dashboard:
+    instant_translation: Instant Translation
+    jobs:
+      panel:
+        open: Jobs waiting for your translation
+        reviews: Jobs waiting for your review
+        waiting_for_review: Jobs that you translated and are awaiting review by someone
+          else
+        review_completed: Jobs that you completed review
+        completed: Jobs that you completed
+        table:
+          header:
+            filter:
+              label:
+                show_translation_jobs_from:
+                  left: 'Show translation jobs from:'
+                  right: website(s)
+                job_filter_id: Job ID Filter
+                search_btn: Search
+            columns:
+              label:
+                id: ID
+                project_name: Project
+                website_name: Website
+                source_language: Source
+                target_language: Target
+          body:
+            rows:
+              open_btn: Open
+              fetching_jobs: Fetching jobs
+              no_jobs: No jobs found.
+              project_details:
+                project_name: 'Project Name:'
+                deadline: 'Deadline:'
+                word_count: 'Word Count:'
+                progress: 'Progress:'
+de:
+  dashboard:
+    instant_translation: Sofortübersetzung
+    jobs:
+      panel:
+        open: Aufträge, die auf Ihre Übersetzung warten
+        reviews: Aufträge, die auf Ihre Korrektur warten
+        waiting_for_review: Aufträge, die Sie übersetzt haben und die auf Korrektur
+          durch andere warten
+        review_completed: Aufträge, deren Korrektur Sie abgeschlossen haben
+        completed: Aufträge, die Sie abgeschlossen haben
+        table:
+          header:
+            filter:
+              label:
+                show_translation_jobs_from:
+                  left: 'Anzeigen der Übersetzungsaufträge von:'
+                  right: Website(s)
+                job_filter_id: Auftrags-ID-Filter
+                search_btn: Suchen
+            columns:
+              label:
+                id: ID
+                project_name: Projekt
+                website_name: Website
+                source_language: Quelle
+                target_language: Ziel
+          body:
+            rows:
+              open_btn: Offen
+              fetching_jobs: Aufträge werden abgerufen
+              no_jobs: Keine Aufträge gefunden.
+              project_details:
+                project_name: 'Projektname:'
+                deadline: 'Fristende:'
+                word_count: 'Wortzahl:'
+                progress: 'Fortschritt:'

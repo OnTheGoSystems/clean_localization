@@ -1,0 +1,117 @@
+v2:
+  mt_quota:
+    limit_reached:
+      title:
+        en: 'Automatic translation quota limit reached'
+      message:
+        en: 'You have %{totalWords} words untranslated, but only %{available_words} words available.'
+  sentences:
+    item:
+      click_to_edit:
+        en: 'Click to edit translation'
+  footer:
+    incomplete:
+      title:
+        en: 'Job not finished'
+      message:
+        en: 'Save and complete the translation of all sentences, then finish the job'
+    save_before:
+      en: 'Save all sentences before finish'
+    preview:
+      en: 'Preview'
+  header:
+    dual:
+      en: 'Dual'
+    source:
+      en: 'Source'
+    target:
+      en: 'Target'
+    mt:
+      disabled:
+        en: 'MT quota limit reached (%{available_words} / %{deposited_words}). MT feature is disabled.'
+      buy_more:
+        en: 'You need more automatic translation words to translate this entire document'
+      ask_manager:
+        en: 'You need more automatic translation words to translate this entire document. Please contact your manager'
+      translate_all:
+        en: 'Translate automatically'
+  tool:
+    formatting_help:
+      en: 'Formatting markers help.'
+  bottom_mar:
+    term:
+      en: 'term'
+    terms:
+      en: 'terms'
+    glossary:
+      insert:
+        en: 'Insert'
+      title:
+        en: 'Glossary %{terms} in this sentence'
+      description:
+        en: 'Description'
+    spellings:
+      ignore_all:
+        en: 'Add all to dictionary'
+      suggestions_for:
+        en: 'Suggestions for "%{word}"'
+      no_suggestions_for:
+        en: 'No suggestions for "%{word}"'
+      click_to_see:
+        en: 'Click on spelled word to see suggestions'
+      click_on_word:
+        en: 'Click on suggested word to apply correction'
+      click_to_hide:
+        en: '(click to hide details)'
+      click_to_open:
+        en: '(click to open details)'
+      spelling_error:
+        en: 'spelling error'
+      spelling_errors:
+        en: 'spelling errors'
+      misspelled_word:
+        en: 'Misspelled word in this sentence'
+      misspelled_words:
+        en: 'Misspelled words in this sentence'
+  toolbar:
+    mt_not_supported:
+      en: 'Automatic translation is not supported in this target language'
+    mt:
+      buy_more:
+        en: 'You need more automatic translation words to translate this sentence'
+      ask_manager:
+        en: 'You need more automatic translation words to translate this sentence. Please contact your manager'
+  session_expired:
+    en: 'Our session has expired, please login again'
+  tooltip:
+    spelling_error:
+      en: 'spelling error'
+    spelling_errors:
+      en: 'spelling errors'
+  buttons:
+    back_to_editor:
+      en: 'Back to editor'
+  whitelist:
+    title:
+      en: 'My dictionary'
+    tooltip:
+      en: 'Click to remove it from dictionary'
+  glossary:
+    form:
+      click_here:
+        en: 'Click here or press Enter'
+      fill:
+        en: 'Fill term, translation and description'
+    title:
+      en: 'Glossary words'
+    search:
+      en: 'Search'
+    add_new_btn:
+      en: 'Add new'
+    placeholders:
+      original_term:
+        en: 'Original Term'
+      translated_term:
+        en: 'Translated Term'
+      description:
+        en: 'Description Term'

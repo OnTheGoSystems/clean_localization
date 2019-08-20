@@ -1,0 +1,41 @@
+---
+en:
+  v2:
+    bottom_mar:
+      term: term
+      terms: terms
+      glossary:
+        insert: Insert
+        title: Glossary %{terms} in this sentence
+        description: Description
+      spellings:
+        ignore_all: Ignore All
+        suggestions_for: Suggestions for "%{word}"
+        no_suggestions_for: No suggestions for "%{word}"
+        click_to_see: Click on spelled word to see suggestions
+        click_on_word: Click on suggested word to apply correction
+        click_to_hide: "(click to hide details)"
+        click_to_open: "(click to open details)"
+        spelling_error: spelling error
+        spelling_errors: spelling errors
+        misspelled_word: Misspelled word in this sentence
+        misspelled_words: Misspelled words in this sentence
+    toolbar:
+      mt_not_supported: Automatic translation is not supported in this target language
+    session_expired: Our session has expired, please login again
+    tooltip:
+      spelling_error: spelling error
+      spelling_errors: spelling errors
+    buttons:
+      back_to_editor: Back to editor
+    whitelist:
+      title: Dictionary
+      tooltip: Click to remove it from dictionary
+    glossary:
+      title: Glossary words
+      search: Search
+      add_new_btn: Add new
+      placeholders:
+        original_term: Original Term
+        translated_term: Translated Term
+        description: Description Term

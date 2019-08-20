@@ -1,0 +1,33 @@
+messages:
+  labels:
+    toggle_sentence_glossary:
+      en: 'Lists the glossary related to this sentence'
+    machine_translation:
+      en: 'Automatic translation'
+    visualize_spaces:
+      en: 'Visualize spaces'
+  events:
+    declare_incomplete:
+      en: 'You have declared this sentence as incomplete'
+    translation_saved:
+      en: 'Translation has been saved'
+    issue_resolved:
+      en: 'Issue has been resolved'
+    no_text_selected:
+      title:
+        en: 'No text selected'
+      message:
+        en: 'First select the text in the translation to apply the marker to. Then, click this button again'
+  errors:
+    generic:
+      en: 'Something went wrong, please try again'
+    job_details:
+      en: 'Unable to retrieve job details.'
+    translation_not_saved_title:
+      en: 'Translation not saved'
+    translation_empty:
+      en: 'The translation cannot be empty. Enter translation and try again.'
+    incomplete_markers:
+      en: 'The original sentence includes formatting markers. However, not all markers are applied to the translation'
+    nested_markers:
+      en: 'The original sentence has nested formatting markers (a formatting marker inside another formatting marker). The formatting markers in the translation are not nested correctly'

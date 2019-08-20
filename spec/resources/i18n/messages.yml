@@ -1,0 +1,26 @@
+---
+en:
+  messages:
+    labels:
+      toggle_sentence_glossary: Lists the glossary related to this sentence
+      machine_translation: Automatic translation
+      visualize_spaces: Visualize spaces
+    events:
+      declare_incomplete: You have declared this sentence as incomplete
+      translation_saved: Translation has been saved
+      issue_resolved: Issue has been resolved
+      no_text_selected:
+        title: No text selected
+        message: First select the text in the translation to apply the marker to.
+          Then, click this button again
+    errors:
+      generic: Something went wrong, please try again
+      job_details: Unable to retrieve job details.
+      translation_not_saved_title: The translation cannot be empty. Enter translation and try again.
+      translation_empty: Error when saving! Please, copy your translation and refresh
+        the page.
+      incomplete_markers: The original sentence includes formatting markers. However,
+        not all markers are applied to the translation
+      nested_markers: The original sentence has nested formatting markers (a formatting
+        marker inside another formatting marker). The formatting markers in the translation
+        are not nested correctly
