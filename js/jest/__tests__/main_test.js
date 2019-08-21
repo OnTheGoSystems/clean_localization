@@ -1,26 +1,32 @@
 'use strict';
 
 import {CleanLocalizationClient} from "../../src/clean_localization_client";
+const CompiledCleanLocalizationClient = require("../../index").CleanLocalizationClient;
 
-it('translates simple key (when missing key)', () => {
-  const key = 'key';
-  const value = CleanLocalizationClient.t(key);
-  expect(value).toEqual('');
-});
+const runTests = (CleanLocalizationClient, kind) => {
+  it(`[${kind}] translates simple key (when missing key)`, () => {
+    const key = 'key';
+    const value = CleanLocalizationClient.t(key);
+    expect(value).toEqual('');
+  });
 
-it('translates simple key (when key exists)', () => {
-  const key = 'key';
-  CleanLocalizationClient.db.data[key] = 'ok';
+  it(`[${kind}] translates simple key (when key exists)`, () => {
+    const key = 'key';
+    CleanLocalizationClient.db.data[key] = 'ok';
 
-  const value = CleanLocalizationClient.t(key);
-  expect(value).toEqual('ok');
-});
+    const value = CleanLocalizationClient.t(key);
+    expect(value).toEqual('ok');
+  });
 
-it('translates complex key', () => {
-  const key = 'key';
-  const dataValue = 'value is %{first} <b>%{second}</b>!';
-  CleanLocalizationClient.db.data[key] = dataValue;
+  it(`[${kind}] translates complex key`, () => {
+    const key = 'key';
+    const dataValue = 'value is %{first} <b>%{second}</b>!';
+    CleanLocalizationClient.db.data[key] = dataValue;
 
-  const value = CleanLocalizationClient.translate(key, { first: 'hello', second: 'world' });
-  expect(value).toEqual('value is hello <b>world</b>!');
-});
+    const value = CleanLocalizationClient.translate(key, { first: 'hello', second: 'world' });
+    expect(value).toEqual('value is hello <b>world</b>!');
+  });
+} ;
+
+runTests(CleanLocalizationClient, 'src');
+runTests(CompiledCleanLocalizationClient, 'lib');
