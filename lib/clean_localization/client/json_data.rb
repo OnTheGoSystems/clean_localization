@@ -1,6 +1,8 @@
 module CleanLocalization
   class Client
     class JsonData
+      PRIMARY_LOCALE = 'en'.freeze
+
       def initialize(language, data)
         @language = language
         @data = data
@@ -33,8 +35,6 @@ module CleanLocalization
           end
         end
       end
-
-      PRIMARY_LOCALE = 'en'.freeze
 
       def primary_locale
         PRIMARY_LOCALE
