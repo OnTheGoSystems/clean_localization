@@ -1,7 +1,7 @@
 # CleanLocalization
 ## Simple and minimalistic Ruby localization
 
-# Translation resource example
+# Translation resource example (main.yml)
 
 ```yaml
 user:
