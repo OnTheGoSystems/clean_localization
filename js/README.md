@@ -4,12 +4,12 @@
 import { CleanLocalizationClient } from "@tarvit/clean_localization";
 
 // sample localization json
-data = {"user.name": "User name", "header.title": "Hi %{name}!"};
+const data = {"user.name": "User name", "header.title": "Hi %{name}!"};
 
 // Populate localization db.
 CleanLocalizationClient.db.data = data;
 
-// Use client
+// Use a client
 const t = require("@tarvit/clean_localization").CleanLocalizationClient.t;
 t("user.name") //=> "User name"
 t("header.title", { name: "John Snow" }) // => "Hi John Snow!"
