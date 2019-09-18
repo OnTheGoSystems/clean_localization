@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    clean_localization (1.1.2)
+    clean_localization (1.1.4)
       activesupport
 
 GEM

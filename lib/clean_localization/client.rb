@@ -17,12 +17,12 @@ module CleanLocalization
     end
 
     def json_data
-      JsonData.new(@language, self.class.data).render
+      @json_data ||= JsonData.new(@language, self.class.data).render
     end
 
     class << self
       def data
-        @data ||= CleanLocalization::Config.load_data
+        @data ||= CleanLocalization::Config.load_data.freeze
       end
     end
 
@@ -40,10 +40,12 @@ module CleanLocalization
         value = value[k]
       end
 
-      value.dup
+      value.freeze
     end
 
-    def insert_variables!(translation, variables)
+    def insert_variables!(value, variables)
+      return value if variables.empty?
+      translation = value.dup
       variables.each { |k, v| translation.gsub!("%{#{k}}", v) }
       translation
     end
