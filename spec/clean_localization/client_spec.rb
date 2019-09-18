@@ -30,6 +30,17 @@ describe CleanLocalization::Client do
 
       it { is_expected.to eq 'Signed as <strong>Jon Snow</strong>' }
     end
+
+    context 'when multiple calls' do
+      let(:key) { 'layout.signed_as' }
+
+      let(:t){ ->(name) { client.translate(key, login: name) }  }
+
+      it do
+        expect(t.call('Jon Snow')).to eq 'Signed as <strong>Jon Snow</strong>'
+        expect(t.call('Night King')).to eq 'Signed as <strong>Night King</strong>'
+      end
+    end
   end
 
   describe '#insert_variables!' do

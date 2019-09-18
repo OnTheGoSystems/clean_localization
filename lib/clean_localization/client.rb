@@ -40,7 +40,7 @@ module CleanLocalization
         value = value[k]
       end
 
-      value
+      value.dup
     end
 
     def insert_variables!(translation, variables)
