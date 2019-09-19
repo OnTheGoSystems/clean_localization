@@ -8,6 +8,20 @@ describe CleanLocalization::Client do
     let(:key) { 'layout.login.button' }
     subject { client.translate(key) }
 
+    context 'when `en` exists as a key' do
+      context 'and key exists' do
+        let(:key) { 'languages.nl' }
+
+        it { is_expected.to eq 'Dutch' }
+      end
+
+      context 'and key does not exist' do
+        let(:key) { 'languages.jp' }
+
+        it { is_expected.to eq nil }
+      end
+    end
+
     context 'when valid key & lang' do
       it { is_expected.to eq 'Sign in!' }
     end
