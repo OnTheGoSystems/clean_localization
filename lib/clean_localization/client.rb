@@ -35,12 +35,16 @@ module CleanLocalization
       value = self.class.data
 
       key_nodes.each do |k|
-        return value['en'] unless value[k]
+        return fallback(k, value) unless value[k]
 
         value = value[k]
       end
 
       value.freeze
+    end
+
+    def fallback(key, data)
+      data.is_a?(Hash) && data[key]
     end
 
     def insert_variables!(value, variables)
