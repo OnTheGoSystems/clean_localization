@@ -7,8 +7,8 @@ require_relative './support/config_converter'
 
 module CleanLocalization
   class Client
-    def initialize(language)
-      @language = language
+    def initialize(locale = Config.current_locale)
+      @locale = locale
     end
 
     def translate(key, arguments = {})
@@ -17,7 +17,7 @@ module CleanLocalization
     end
 
     def json_data
-      @json_data ||= JsonData.new(@language, self.class.data).render
+      @json_data ||= JsonData.new(@locale, self.class.data).render
     end
 
     class << self
@@ -30,7 +30,7 @@ module CleanLocalization
 
     def fetch_translation(key)
       key_nodes = key.split('.')
-      key_nodes << @language.to_s
+      key_nodes << @locale.to_s
 
       value = self.class.data
 

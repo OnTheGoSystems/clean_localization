@@ -1,8 +1,7 @@
 require 'spec_helper'
 
 describe CleanLocalization::Client do
-  let(:lang) { 'en' }
-  let(:client) { described_class.new(lang) }
+  let(:client) { described_class.new }
 
   describe '#translate' do
     let(:key) { 'layout.login.button' }
@@ -27,7 +26,7 @@ describe CleanLocalization::Client do
     end
 
     context 'when uk' do
-      let(:lang) { 'uk' }
+      let(:client) { described_class.new('uk') }
       it { is_expected.to eq 'Увійти' }
     end
 
