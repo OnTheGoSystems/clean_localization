@@ -21,8 +21,14 @@ module CleanLocalization
     end
 
     class << self
+      attr_writer :data
+
       def data
-        @data ||= CleanLocalization::Config.load_data.freeze
+        @data ||= reload_data!
+      end
+
+      def reload_data!
+        @data = CleanLocalization::Config.load_data.freeze
       end
     end
 
