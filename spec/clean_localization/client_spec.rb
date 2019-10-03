@@ -4,6 +4,32 @@ describe CleanLocalization::Client do
   let(:lang) { 'en' }
   let(:client) { described_class.new(lang) }
 
+  describe '.data' do
+    it 'loads data only once, caching it' do
+      expect(CleanLocalization::Config)
+        .to receive(:load_data)
+        .and_return({})
+        .once
+
+      expect(described_class.data).to eq({})
+      expect(described_class.data).to eq({})
+    end
+  end
+
+  describe '.reload_data!' do
+    it 'reloads data into `data`' do
+      pre_data = CleanLocalization::Client.data # ensure data is loaded
+
+      expect do
+        CleanLocalization::Config.base_path = Dir.mktmpdir
+        described_class.reload_data!
+      end
+        .to change(described_class, :data)
+        .from(pre_data)
+        .to({})
+    end
+  end
+
   describe '#translate' do
     let(:key) { 'layout.login.button' }
     subject { client.translate(key) }
