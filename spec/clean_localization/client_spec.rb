@@ -1,8 +1,7 @@
 require 'spec_helper'
 
 describe CleanLocalization::Client do
-  let(:lang) { 'en' }
-  let(:client) { described_class.new(lang) }
+  let(:client) { described_class.new }
 
   describe '.data' do
     it 'loads data only once, caching it' do
@@ -54,7 +53,7 @@ describe CleanLocalization::Client do
     end
 
     context 'when uk' do
-      let(:lang) { 'uk' }
+      let(:client) { described_class.new('uk') }
       it { is_expected.to eq 'Увійти' }
     end
 
