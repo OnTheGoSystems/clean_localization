@@ -19,11 +19,12 @@ describe CleanLocalization::Client do
   describe '.reload_data!' do
     it 'reloads data into `data`' do
       pre_data = CleanLocalization::Client.data # ensure data is loaded
-
-      expect do
+      reload = lambda do
         CleanLocalization::Config.base_path = Dir.mktmpdir
         described_class.reload_data!
       end
+
+      expect(&reload)
         .to change(described_class, :data)
         .from(pre_data)
         .to({})
