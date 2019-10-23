@@ -33,7 +33,7 @@ module CleanLocalization
         CleanLocalization::Config.file_paths.each do |original_path|
           filepath = original_path.gsub(CleanLocalization::Config.base_path.to_s, '')
           translated_path = translated_dir_path + filepath
-          apply_i18n(original_path, translated_path)
+          apply_i18n(original_path, translated_path) if File.exist?(translated_path)
         end
       end
 
