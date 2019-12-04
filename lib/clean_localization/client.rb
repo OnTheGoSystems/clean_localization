@@ -40,11 +40,11 @@ module CleanLocalization
         value = value[k]
       end
 
-      value.freeze
+      value
     end
 
     def insert_variables!(value, variables)
-      return value if variables.empty?
+      return value&.dup if variables.empty?
       translation = value.dup
       variables.each { |k, v| translation.gsub!("%{#{k}}", v) }
       translation
