@@ -1,19 +1,59 @@
 require 'spec_helper'
 
 describe CleanLocalization::Client do
-  let(:lang) { 'en' }
-  let(:client) { described_class.new(lang) }
+  let(:client) { described_class.new }
+
+  describe '.data' do
+    it 'loads data only once, caching it' do
+      expect(CleanLocalization::Config)
+        .to receive(:load_data)
+        .and_return({})
+        .once
+
+      expect(described_class.data).to eq({})
+      expect(described_class.data).to eq({})
+    end
+  end
+
+  describe '.reload_data!' do
+    it 'reloads data into `data`' do
+      pre_data = CleanLocalization::Client.data # ensure data is loaded
+      reload = lambda do
+        CleanLocalization::Config.base_path = Dir.mktmpdir
+        described_class.reload_data!
+      end
+
+      expect(&reload)
+        .to change(described_class, :data)
+        .from(pre_data)
+        .to({})
+    end
+  end
 
   describe '#translate' do
     let(:key) { 'layout.login.button' }
     subject { client.translate(key) }
+
+    context 'when `en` exists as a key' do
+      context 'and key exists' do
+        let(:key) { 'languages.nl' }
+
+        it { is_expected.to eq 'Dutch' }
+      end
+
+      context 'and key does not exist' do
+        let(:key) { 'languages.jp' }
+
+        it { is_expected.to eq nil }
+      end
+    end
 
     context 'when valid key & lang' do
       it { is_expected.to eq 'Sign in!' }
     end
 
     context 'when uk' do
-      let(:lang) { 'uk' }
+      let(:client) { described_class.new('uk') }
       it { is_expected.to eq 'Увійти' }
     end
 

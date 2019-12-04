@@ -1,6 +1,10 @@
 module CleanLocalization
   class Config
     class << self
+      DEFAULT_LOCALE = :en
+
+      attr_writer :current_locale
+
       def load_data
         files.each_with_object({}) { |h, r| r.deep_merge!(h) }
       end
@@ -26,6 +30,11 @@ module CleanLocalization
       def base_path=(path)
         @base_path = path
       end
+
+      def current_locale
+        @current_locale || DEFAULT_LOCALE
+      end
+
     end
   end
 end

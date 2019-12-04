@@ -7,8 +7,8 @@ require_relative './support/config_converter'
 
 module CleanLocalization
   class Client
-    def initialize(language)
-      @language = language
+    def initialize(locale = Config.current_locale)
+      @locale = locale
     end
 
     def translate(key, arguments = {})
@@ -17,12 +17,18 @@ module CleanLocalization
     end
 
     def json_data
-      @json_data ||= JsonData.new(@language, self.class.data).render
+      @json_data ||= JsonData.new(@locale, self.class.data).render
     end
 
     class << self
+      attr_writer :data
+
       def data
-        @data ||= CleanLocalization::Config.load_data.freeze
+        @data ||= reload_data!
+      end
+
+      def reload_data!
+        @data = CleanLocalization::Config.load_data.freeze
       end
     end
 
@@ -30,17 +36,21 @@ module CleanLocalization
 
     def fetch_translation(key)
       key_nodes = key.split('.')
-      key_nodes << @language.to_s
+      key_nodes << @locale.to_s
 
       value = self.class.data
 
       key_nodes.each do |k|
-        return value['en'] unless value[k]
+        return fallback(k, value) unless value[k]
 
         value = value[k]
       end
 
       value
+    end
+
+    def fallback(key, data)
+      data.is_a?(Hash) && data[key]
     end
 
     def insert_variables!(value, variables)
