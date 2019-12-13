@@ -29,7 +29,15 @@ module CleanLocalization
         cc.dump_yaml(updated_original, original_clean_path)
       end
 
-      def apply_all_i18n(translated_dir_path)
+      def build_full_i18n_tree(translated_dir_path)
+        paths = CleanLocalization::Config.file_paths(translated_dir_path)
+        hashes = paths.map { |p| CleanLocalization::Config.load_yaml(p) }
+        all = {}
+        hashes.each { |h| all.deep_merge!(h) }
+        all
+      end
+
+      def apply_all_i18n1(translated_dir_path)
         CleanLocalization::Config.file_paths.each do |original_path|
           filepath = original_path.gsub(CleanLocalization::Config.base_path.to_s, '')
           translated_path = translated_dir_path + filepath
