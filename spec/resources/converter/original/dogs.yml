@@ -1,6 +1,3 @@
-uk:
-  dogs:
-    like_barking: Я люблю гавкати
-fr:
-  dogs:
-    like_barking: J'aime aboyer
+dogs:
+  like_barking:
+    en: I like barking

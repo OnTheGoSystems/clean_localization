@@ -37,11 +37,48 @@ module CleanLocalization
         all
       end
 
-      def apply_all_i18n1(translated_dir_path)
-        CleanLocalization::Config.file_paths.each do |original_path|
-          filepath = original_path.gsub(CleanLocalization::Config.base_path.to_s, '')
-          translated_path = translated_dir_path + filepath
-          apply_i18n(original_path, translated_path) if File.exist?(translated_path)
+      def apply_all_i18n(translated_dir_path, main_dir_path = CleanLocalization::Config.base_path.to_s, persist=true)
+        full_translated_tree = build_full_i18n_tree(translated_dir_path)
+
+        updates = CleanLocalization::Config.file_paths(main_dir_path).map do |original_path|
+          original_yaml = CleanLocalization::Config.load_yaml(original_path)
+
+          primary_key_paths = []
+          deep_primary_key(original_yaml) { |full_key| primary_key_paths << full_key }
+
+          primary_key_paths.map do |fk|
+            full_translated_tree.keys.each do |locale|
+              value = full_translated_tree[locale]
+              fk.each do |kp|
+                break if value.nil?
+
+                if value.is_a?(Hash)
+                  value = value[kp]
+                end
+              end
+
+              next if value.nil?
+
+              original_value = original_yaml
+              fk.each { |kp| original_value = original_value[kp] }
+              original_value[locale] = value
+            end
+          end
+
+          dump_yaml(original_yaml, original_path) if persist
+          { original_path: original_path, updated: original_yaml }
+        end
+
+        updates
+      end
+
+      def deep_primary_key(value, key_path=[], &block)
+        if value.is_a?(Hash)
+          if value.keys.include?(CleanLocalization::Client::JsonData::PRIMARY_LOCALE)
+            yield(key_path)
+          else
+            value.keys.each { |k| deep_primary_key(value[k], key_path.dup.concat([k]), &block) }
+          end
         end
       end
 
