@@ -94,31 +94,29 @@ describe CleanLocalization::Support::ConfigConverter do
           {
             original_path: CleanLocalization::Config.base_path.join('converter/original/dogs.yml').to_s,
             updated: {
-              'dogs' =>
-                 {
-                   'like_barking' => {
-                     'en' => 'I like barking',
-                     'uk' => 'Я люблю гавкати',
-                     'fr' => "J'aime aboyer"
-                   }
-                 }
+              'dogs' => {
+                'like_barking' => {
+                  'en' => 'I like barking',
+                  'uk' => 'Я люблю гавкати',
+                  'fr' => "J'aime aboyer"
+                }
+              }
             }
           },
           {
             original_path: CleanLocalization::Config.base_path.join('converter/original/cats.yml').to_s,
             updated: {
-              'cats' =>
-                 {
-                   'like_fish' => {
-                     'en' => 'I like fish',
-                     'uk' => 'Я люблю рибу',
-                     'fr' => "J'aime le poisson"
-                   },
-                   'hunt_mouse' => {
-                     'en' => 'I hunt mouse',
-                     'fr' => 'Je chasse la souris'
-                   }
-                 }
+              'cats' => {
+                'like_fish' => {
+                  'en' => 'I like fish',
+                  'uk' => 'Я люблю рибу',
+                  'fr' => "J'aime le poisson"
+                },
+                'hunt_mouse' => {
+                  'en' => 'I hunt mouse',
+                  'fr' => 'Je chasse la souris'
+                }
+              }
             }
           }
         ]
