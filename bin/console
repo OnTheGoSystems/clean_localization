@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'clean_localization/version'
+require 'clean_localization/client'
+require 'active_support/all'
+require 'yaml'
+require 'pry'
+
+require 'irb'
+
+IRB.start(__FILE__)

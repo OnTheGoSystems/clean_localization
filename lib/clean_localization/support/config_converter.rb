@@ -38,6 +38,9 @@ module CleanLocalization
       end
 
       def apply_all_i18n(translated_dir_path, main_dir_path = CleanLocalization::Config.base_path.to_s, persist=true)
+        main_dir_path = Pathname(main_dir_path) if main_dir_path.is_a?(String)
+        translated_dir_path = Pathname(translated_dir_path) if translated_dir_path.is_a?(String)
+
         full_translated_tree = build_full_i18n_tree(translated_dir_path)
 
         updates = CleanLocalization::Config.file_paths(main_dir_path).map do |original_path|
