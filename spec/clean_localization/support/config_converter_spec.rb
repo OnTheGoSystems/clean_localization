@@ -64,12 +64,19 @@ describe CleanLocalization::Support::ConfigConverter do
       let(:full_tree) do
         {
           'uk' => {
-            'dogs' => { 'like_barking' => 'Я люблю гавкати' }
+            'dogs' => {
+              'like_barking' => 'Я люблю гавкати'
+            }
           },
           'fr' =>
             {
-              'dogs' => { 'like_barking' => "J'aime aboyer" },
-              'cats' => { 'like_fish' => "J'aime le poisson", 'hunt_mouse' => 'Je chasse la souris' }
+              'dogs' => {
+                'like_barking' => "J'aime aboyer"
+              },
+              'cats' => {
+                'like_fish' => "J'aime le poisson",
+                'hunt_mouse' => 'Je chasse la souris'
+              }
             }
         }
       end
@@ -103,10 +110,13 @@ describe CleanLocalization::Support::ConfigConverter do
               'cats' =>
                  {
                    'like_fish' => {
-                     'en' => 'I like fish', 'uk' => 'Я люблю рибу', 'fr' => "J'aime le poisson"
+                     'en' => 'I like fish',
+                     'uk' => 'Я люблю рибу',
+                     'fr' => "J'aime le poisson"
                    },
                    'hunt_mouse' => {
-                     'en' => 'I hunt mouse', 'fr' => 'Je chasse la souris'
+                     'en' => 'I hunt mouse',
+                     'fr' => 'Je chasse la souris'
                    }
                  }
             }
