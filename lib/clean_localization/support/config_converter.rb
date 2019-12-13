@@ -29,11 +29,63 @@ module CleanLocalization
         cc.dump_yaml(updated_original, original_clean_path)
       end
 
-      def apply_all_i18n(translated_dir_path)
-        CleanLocalization::Config.file_paths.each do |original_path|
-          filepath = original_path.gsub(CleanLocalization::Config.base_path.to_s, '')
-          translated_path = translated_dir_path + filepath
-          apply_i18n(original_path, translated_path) if File.exist?(translated_path)
+      def build_full_i18n_tree(translated_dir_path)
+        paths = CleanLocalization::Config.file_paths(translated_dir_path)
+        hashes = paths.map { |p| CleanLocalization::Config.load_yaml(p) }
+        all = {}
+        hashes.each { |h| all.deep_merge!(h) }
+        all
+      end
+
+      def apply_all_i18n(translated_dir_path, main_dir_path = CleanLocalization::Config.base_path.to_s, persist=true)
+        main_dir_path = Pathname(main_dir_path) if main_dir_path.is_a?(String)
+        translated_dir_path = Pathname(translated_dir_path) if translated_dir_path.is_a?(String)
+
+        full_translated_tree = build_full_i18n_tree(translated_dir_path)
+
+        updates = CleanLocalization::Config.file_paths(main_dir_path).map do |original_path|
+          original_yaml = CleanLocalization::Config.load_yaml(original_path)
+
+          primary_key_paths = []
+          deep_primary_key(original_yaml) { |full_key| primary_key_paths << full_key }
+
+          primary_key_paths.map do |fk|
+            apply_locales(full_translated_tree, fk, original_yaml)
+          end
+
+          dump_yaml(original_yaml, original_path) if persist
+          { original_path: original_path, updated: original_yaml }
+        end
+
+        updates
+      end
+
+      def apply_locales(full_translated_tree, full_key, original_yaml)
+        full_translated_tree.keys.each do |locale|
+          value = full_translated_tree[locale]
+          full_key.each do |kp|
+            break if value.nil?
+
+            if value.is_a?(Hash)
+              value = value[kp]
+            end
+          end
+
+          next if value.nil?
+
+          original_value = original_yaml
+          full_key.each { |kp| original_value = original_value[kp] }
+          original_value[locale] = value
+        end
+      end
+
+      def deep_primary_key(value, key_path=[], &block)
+        if value.is_a?(Hash)
+          if value.keys.include?(CleanLocalization::Client::JsonData::PRIMARY_LOCALE)
+            yield(key_path)
+          else
+            value.keys.each { |k| deep_primary_key(value[k], key_path.dup.concat([k]), &block) }
+          end
         end
       end
 

@@ -17,9 +17,9 @@ module CleanLocalization
         YAML.safe_load(File.read(path))
       end
 
-      def file_paths
-        Dir.open(base_path).select { |x| x.end_with?('.yml') }.map do |f|
-          base_path.join(f).to_s
+      def file_paths(path = base_path)
+        Dir.open(path).select { |x| x.end_with?('.yml') }.map do |f|
+          path.join(f).to_s
         end
       end
 
