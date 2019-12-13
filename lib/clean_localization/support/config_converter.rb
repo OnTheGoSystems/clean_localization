@@ -47,22 +47,7 @@ module CleanLocalization
           deep_primary_key(original_yaml) { |full_key| primary_key_paths << full_key }
 
           primary_key_paths.map do |fk|
-            full_translated_tree.keys.each do |locale|
-              value = full_translated_tree[locale]
-              fk.each do |kp|
-                break if value.nil?
-
-                if value.is_a?(Hash)
-                  value = value[kp]
-                end
-              end
-
-              next if value.nil?
-
-              original_value = original_yaml
-              fk.each { |kp| original_value = original_value[kp] }
-              original_value[locale] = value
-            end
+            apply_locales(full_translated_tree, fk, original_yaml)
           end
 
           dump_yaml(original_yaml, original_path) if persist
@@ -70,6 +55,25 @@ module CleanLocalization
         end
 
         updates
+      end
+
+      def apply_locales(full_translated_tree, full_key, original_yaml)
+        full_translated_tree.keys.each do |locale|
+          value = full_translated_tree[locale]
+          full_key.each do |kp|
+            break if value.nil?
+
+            if value.is_a?(Hash)
+              value = value[kp]
+            end
+          end
+
+          next if value.nil?
+
+          original_value = original_yaml
+          full_key.each { |kp| original_value = original_value[kp] }
+          original_value[locale] = value
+        end
       end
 
       def deep_primary_key(value, key_path=[], &block)
