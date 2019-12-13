@@ -85,7 +85,7 @@ describe CleanLocalization::Support::ConfigConverter do
       let(:all_updates) do
         [
           {
-            original_path: '/home/tarvit/projects/clean-localization/spec/resources/converter/original/dogs.yml',
+            original_path: CleanLocalization::Config.base_path.join('converter/original/dogs.yml').to_s,
             updated: {
               'dogs' =>
                  {
@@ -98,7 +98,7 @@ describe CleanLocalization::Support::ConfigConverter do
             }
           },
           {
-            original_path: '/home/tarvit/projects/clean-localization/spec/resources/converter/original/cats.yml',
+            original_path: CleanLocalization::Config.base_path.join('converter/original/cats.yml').to_s,
             updated: {
               'cats' =>
                  {
