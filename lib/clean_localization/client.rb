@@ -41,7 +41,7 @@ module CleanLocalization
       value = self.class.data
 
       key_nodes.each do |k|
-        return fallback(k, value) unless value[k]
+        return fallback(value) unless value[k]
 
         value = value[k]
       end
@@ -49,14 +49,15 @@ module CleanLocalization
       value
     end
 
-    def fallback(key, data)
-      data.is_a?(Hash) && data[key]
+    def fallback(data)
+      res = data.is_a?(Hash) && data['en']
+      res.is_a?(String) ? res : nil
     end
 
     def insert_variables!(value, variables)
       return value&.dup if variables.empty?
       translation = value.dup
-      variables.each { |k, v| translation.gsub!("%{#{k}}", v) }
+      variables.each { |k, v| translation.gsub!("%{#{k}}", v.to_s) }
       translation
     end
   end

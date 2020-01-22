@@ -52,6 +52,11 @@ describe CleanLocalization::Client do
       it { is_expected.to eq 'Sign in!' }
     end
 
+    context 'when non existing locale' do
+      let(:client) { described_class.new('nn') }
+      it { is_expected.to eq 'Sign in!' }
+    end
+
     context 'when uk' do
       let(:client) { described_class.new('uk') }
       it { is_expected.to eq 'Увійти' }
