@@ -87,22 +87,10 @@ describe CleanLocalization::Support::ConfigConverter do
     end
 
     context '#apply_all_i18n' do
-      subject { converter.apply_all_i18n(translated_path, original_path, false) }
+      subject { converter.apply_all_i18n(translated_path, original_path, false).sort_by(&:inspect) }
 
       let(:all_updates) do
         [
-          {
-            original_path: CleanLocalization::Config.base_path.join('converter/original/dogs.yml').to_s,
-            updated: {
-              'dogs' => {
-                'like_barking' => {
-                  'en' => 'I like barking',
-                  'uk' => 'Я люблю гавкати',
-                  'fr' => "J'aime aboyer"
-                }
-              }
-            }
-          },
           {
             original_path: CleanLocalization::Config.base_path.join('converter/original/cats.yml').to_s,
             updated: {
@@ -115,6 +103,18 @@ describe CleanLocalization::Support::ConfigConverter do
                 'hunt_mouse' => {
                   'en' => 'I hunt mouse',
                   'fr' => 'Je chasse la souris'
+                }
+              }
+            }
+          },
+          {
+            original_path: CleanLocalization::Config.base_path.join('converter/original/dogs.yml').to_s,
+            updated: {
+              'dogs' => {
+                'like_barking' => {
+                  'en' => 'I like barking',
+                  'uk' => 'Я люблю гавкати',
+                  'fr' => "J'aime aboyer"
                 }
               }
             }
