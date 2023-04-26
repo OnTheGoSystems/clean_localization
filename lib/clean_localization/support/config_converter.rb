@@ -17,7 +17,7 @@ module CleanLocalization
           yml = CleanLocalization::Config.load_yaml(original_path)
           converted_yml = clean_to_i18n(yml, ignore_translated: ignore_translated)
           puts "converted: #{output_path}"
-          dump_yaml(converted_yml, output_path)
+          dump_yaml(converted_yml, output_path) if converted_yml.present?
         end
       end
 
