@@ -9,13 +9,13 @@ module CleanLocalization
         I18nToClean.new.convert(i18n_config)
       end
 
-      def convert_all_to_18n
+      def convert_all_to_18n(ignore_translated: false)
         CleanLocalization::Config.file_paths.each do |original_path|
           parts = original_path.split('/')
           parts[-1] = "i18n/#{parts.last}"
           output_path = parts.join('/')
           yml = CleanLocalization::Config.load_yaml(original_path)
-          converted_yml = clean_to_i18n(yml)
+          converted_yml = clean_to_i18n(yml, ignore_translated: ignore_translated)
           puts "converted: #{output_path}"
           dump_yaml(converted_yml, output_path)
         end
