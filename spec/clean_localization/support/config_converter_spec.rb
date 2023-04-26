@@ -41,6 +41,40 @@ describe CleanLocalization::Support::ConfigConverter do
     subject { converter.clean_to_i18n(clean_config) }
 
     it { is_expected.to eq i18n_config }
+
+    context 'when ignore translated' do
+      let(:clean_config) do
+        {
+          my: {
+            good: {
+              key: {
+                en: 'Value',
+                uk: 'Значення'
+              },
+              new_key: {
+                en: 'Something',
+              }
+            }
+          }
+        }.deep_stringify_keys
+      end
+
+      let(:i18n_config) do
+        {
+          en: {
+            my: {
+              good: {
+                new_key: 'Something'
+              }
+            }
+          }
+        }.deep_stringify_keys
+      end
+
+      subject { described_class.new.clean_to_i18n(clean_config, ignore_translated: true) }
+
+      it { is_expected.to eq i18n_config }
+    end
   end
 
   context '#i18n_to_clean' do
@@ -124,6 +158,47 @@ describe CleanLocalization::Support::ConfigConverter do
 
       it do
         is_expected.to eq all_updates
+      end
+
+      context 'when partial translation' do
+        let(:translated_path) do
+          CleanLocalization::Config.base_path.join('converter/translated_partial')
+        end
+
+        let(:all_updates) do
+          [
+            {
+              original_path: CleanLocalization::Config.base_path.join('converter/original/cats.yml').to_s,
+              updated: {
+                'cats' => {
+                  'like_fish' => {
+                    'en' => 'I like fish',
+                    'uk' => 'Я люблю рибу',
+                  },
+                  'hunt_mouse' => {
+                    'en' => 'I hunt mouse',
+                    'fr' => 'Je chasse la souris'
+                  }
+                }
+              }
+            },
+            {
+              original_path: CleanLocalization::Config.base_path.join('converter/original/dogs.yml').to_s,
+              updated: {
+                'dogs' => {
+                  'like_barking' => {
+                    'en' => 'I like barking',
+                    'fr' => "J'aime aboyer"
+                  }
+                }
+              }
+            }
+          ]
+        end
+
+        it do
+          is_expected.to eq all_updates
+        end
       end
     end
   end

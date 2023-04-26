@@ -1,8 +1,8 @@
 module CleanLocalization
   module Support
     class ConfigConverter
-      def clean_to_i18n(clean_config)
-        CleanToI18n.new.convert(clean_config)
+      def clean_to_i18n(clean_config, ignore_translated: false)
+        CleanToI18n.new(ignore_translated: ignore_translated).convert(clean_config)
       end
 
       def i18n_to_clean(i18n_config)
